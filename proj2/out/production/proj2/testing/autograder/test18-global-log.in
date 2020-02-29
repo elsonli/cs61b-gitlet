@@ -1,0 +1,25 @@
+# Check that global-log prints out commits in master branch.
+I setup2.inc
++ h.txt wug.txt
+> add h.txt
+<<<
+> commit "Add h"
+<<<
+> log
+${COMMIT_LOG}
+${COMMIT_LOG}
+${COMMIT_LOG}
+<<<*
+D L1 "${1}"
+D L2 "${2}"
+D L3 "${3}"
+> global-log
+${ARBLINES}${L1}?${ARBLINES}
+<<<*
+> global-log
+${ARBLINES}${L2}?${ARBLINES}
+<<<*
+> global-log
+${ARBLINES}${L3}${ARBLINES}
+<<<*
+
